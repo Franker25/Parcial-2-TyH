@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a543d21416c14a746b6b07151b79c64b, type: 3}
   m_Name: FasterPlayer
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  upgradeName: Faster Player
+  upgradeName: GOTTA GO FAST!
+  description: Faster Movement Speed
   type: 0
   amount: 0.5

@@ -20,6 +20,12 @@ public class BattleManager : MonoBehaviour
     private GameObject gameOverPanel;
     [SerializeField]
     private float enemyTurnDelay = 1f;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip hitSound;
+    [SerializeField]
+    private AudioClip criticalSound;
 
     private BattleEnemy selectedEnemy;
     private bool playerTurn = true;
@@ -79,6 +85,15 @@ public class BattleManager : MonoBehaviour
         BattleEnemy target = selectedEnemy;
         bool hitWeakness = target.TakeHit(element);
 
+        if (hitWeakness)
+        {
+            PlaySound(criticalSound);
+        }
+        else
+        {
+            PlaySound(hitSound);
+        }
+
         if (AllEnemiesDead())
         {
             Win();
@@ -127,6 +142,16 @@ public class BattleManager : MonoBehaviour
         messageText.text = "Your turn! Pick an element.";
         elementButtons.SetActive(true);
         playerTurn = true;
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource == null || clip == null)
+        {
+            return;
+        }
+
+        audioSource.PlayOneShot(clip);
     }
 
     private void SelectNextEnemy()

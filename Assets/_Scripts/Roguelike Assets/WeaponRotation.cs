@@ -8,6 +8,9 @@ public class WeaponRotation : MonoBehaviour
     private float speed = 200;
     [SerializeField]
     private GameObject secondAxe;
+    [SerializeField]
+    private GameObject thirdAxe;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,8 +34,14 @@ public class WeaponRotation : MonoBehaviour
         secondAxe.SetActive(true);
     }
 
+
     public void GrowWeapon(float amount)
     {
         transform.localScale += new Vector3(amount, amount, 0f);
+    }
+
+    public void ActivateThirdAxe()
+    {
+        thirdAxe.SetActive(true);
     }
 }

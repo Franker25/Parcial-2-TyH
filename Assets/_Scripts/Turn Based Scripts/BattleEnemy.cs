@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -23,6 +24,10 @@ public class BattleEnemy : MonoBehaviour
     private Image enemyImage;
     [SerializeField]
     private BattleManager manager;
+    [SerializeField]
+    private int blinkCount = 3;
+    [SerializeField]
+    private float blinkTime = 0.08f;
 
     private int health;
     private bool weaknessKnown = false;
@@ -67,8 +72,26 @@ public class BattleEnemy : MonoBehaviour
             enemyImage.color = Color.gray;
         }
 
+        Blink();
         UpdateText();
         return hitWeakness;
+    }
+
+    private void Blink()
+    {
+        StopAllCoroutines();
+        StartCoroutine(BlinkRoutine());
+    }
+
+    private IEnumerator BlinkRoutine()
+    {
+        for (int i = 0; i < blinkCount; i++)
+        {
+            enemyImage.enabled = false;
+            yield return new WaitForSeconds(blinkTime);
+            enemyImage.enabled = true;
+            yield return new WaitForSeconds(blinkTime);
+        }
     }
 
     public int GetAttackDamage()
