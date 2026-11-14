@@ -7,15 +7,12 @@ public class BattleEnemy : MonoBehaviour
 {
     public string EnemyName = "Enemy";
     public bool IsDead = false;
+    public bool WeaknessHitThisTurn = false;
 
     [SerializeField]
     private int maxHealth = 30;
     [SerializeField]
     private int attackDamage = 4;
-    [SerializeField]
-    private int weaknessDamage = 15;
-    [SerializeField]
-    private int normalDamage = 2;
     [SerializeField]
     private TextMeshProUGUI infoText;
     [SerializeField]
@@ -49,20 +46,17 @@ public class BattleEnemy : MonoBehaviour
         manager.SelectEnemy(this);
     }
 
-    public bool TakeHit(ElementType element)
+    public bool TakeHit(ElementData element)
     {
-        bool hitWeakness = false;
+        bool hitWeakness = element.type == weakness;
 
-        if (element == weakness)
+        if (hitWeakness)
         {
-            hitWeakness = true;
             weaknessKnown = true;
-            health -= weaknessDamage;
+            WeaknessHitThisTurn = true;
         }
-        else
-        {
-            health -= normalDamage;
-        }
+
+        health -= element.GetDamage(hitWeakness);
 
         if (health <= 0)
         {

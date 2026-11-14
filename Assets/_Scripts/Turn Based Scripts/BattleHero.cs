@@ -14,6 +14,10 @@ public class BattleHero : MonoBehaviour
     [SerializeField]
     private Image heroImage;
     [SerializeField]
+    private Sprite werewolfSprite;
+    [SerializeField]
+    private float werewolfScale = 1.5f;
+    [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip hurtSound;
@@ -23,11 +27,34 @@ public class BattleHero : MonoBehaviour
     private float blinkTime = 0.08f;
 
     private int health;
+    private Sprite normalSprite;
+    private Vector3 normalScale;
 
     void Start()
     {
         health = maxHealth;
+        normalSprite = heroImage.sprite;
+        normalScale = heroImage.rectTransform.localScale;
         UpdateText();
+    }
+
+    public void SetWerewolf(bool isWerewolf)
+    {
+        if (werewolfSprite == null)
+        {
+            return;
+        }
+
+        if (isWerewolf)
+        {
+            heroImage.sprite = werewolfSprite;
+            heroImage.rectTransform.localScale = normalScale * werewolfScale;
+        }
+        else
+        {
+            heroImage.sprite = normalSprite;
+            heroImage.rectTransform.localScale = normalScale;
+        }
     }
 
     public void TakeDamage(int amount)

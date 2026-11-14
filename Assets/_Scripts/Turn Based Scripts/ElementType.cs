@@ -2,6 +2,8 @@ public enum ElementType
 {
     Fire,
     Ice,
-    Thunder,
-    Wind
+    Thorns,
+    Earth,
+    Claw,
+    Bite
 }
