@@ -17,6 +17,6 @@ MonoBehaviour:
   normalDamage: 5
   weaknessDamage: 15
   isWerewolfAttack: 1
-  hitSound: {fileID: 0}
-  criticalSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 5bfeaf499182fd642a97e6173a863c40, type: 3}
+  criticalSound: {fileID: 8300000, guid: 1ef853d4164360841a5a01cfb7972558, type: 3}
   attackSound: {fileID: 0}

@@ -37,6 +37,14 @@ public class BattleManager : MonoBehaviour
     private int counterChance = 20;
     [SerializeField]
     private float counterDelay = 0.5f;
+    [SerializeField]
+    [Range(0, 100)]
+    private int playerMissChance = 5;
+    [SerializeField]
+    [Range(0, 100)]
+    private int enemyMissChance = 5;
+    [SerializeField]
+    private AudioClip missSound;
 
     private BattleEnemy selectedEnemy;
     private bool playerTurn = true;
@@ -158,6 +166,15 @@ public class BattleManager : MonoBehaviour
     private bool ResolveHit(ElementData data)
     {
         BattleEnemy target = selectedEnemy;
+
+        if (RollMiss(playerMissChance))
+        {
+            PlaySound(missSound);
+            messageText.text = data.elementName + " missed " + target.EnemyName + "!";
+            StartCoroutine(EnemyTurn());
+            return false;
+        }
+
         bool hitWeakness = target.TakeHit(data);
         data.PlayHit(audioSource, hitWeakness);
 
@@ -204,6 +221,15 @@ public class BattleManager : MonoBehaviour
             {
                 messageText.text = enemies[i].EnemyName + " attacks!";
                 yield return new WaitForSeconds(enemyTurnDelay);
+
+                if (RollMiss(enemyMissChance))
+                {
+                    messageText.text = enemies[i].EnemyName + " missed!";
+                    PlaySound(missSound);
+                    yield return new WaitForSeconds(afterAttackTime);
+                    continue;
+                }
+
                 hero.TakeDamage(enemies[i].GetAttackDamage());
 
                 if (hero.IsDead)
@@ -252,6 +278,15 @@ public class BattleManager : MonoBehaviour
         data.PlayAttack(audioSource);
 
         yield return new WaitForSeconds(attackTime);
+
+        if (RollMiss(playerMissChance))
+        {
+            messageText.text = "The counterattack missed!";
+            PlaySound(missSound);
+            yield return new WaitForSeconds(afterAttackTime);
+            hero.SetWerewolf(false);
+            yield break;
+        }
 
         bool hitWeakness = attacker.TakeHit(data);
         data.PlayHit(audioSource, hitWeakness);
@@ -314,6 +349,11 @@ public class BattleManager : MonoBehaviour
         {
             enemies[i].WeaknessHitThisTurn = false;
         }
+    }
+
+    private bool RollMiss(int chance)
+    {
+        return Random.Range(0, 100) < chance;
     }
 
     private void PlaySound(AudioClip clip)
