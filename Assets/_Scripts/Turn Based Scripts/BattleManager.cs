@@ -175,6 +175,7 @@ public class BattleManager : MonoBehaviour
             return false;
         }
 
+        bool alreadyHit = target.WeaknessHitThisTurn;
         bool hitWeakness = target.TakeHit(data);
         data.PlayHit(audioSource, hitWeakness);
 
@@ -191,7 +192,7 @@ public class BattleManager : MonoBehaviour
 
         if (hitWeakness)
         {
-            if (AllLivingEnemiesWeaknessHit())
+            if (alreadyHit || AllLivingEnemiesWeaknessHit())
             {
                 messageText.text = "WEAKNESS! " + target.EnemyName + " is weak to " + data.elementName + "! But no more extra turns...";
                 StartCoroutine(EnemyTurn());
