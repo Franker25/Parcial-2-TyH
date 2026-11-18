@@ -12,13 +12,13 @@ public class WeaponRotation : MonoBehaviour
     private GameObject thirdAxe;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         rb2d.MoveRotation(rb2d.rotation + speed * Time.fixedDeltaTime);

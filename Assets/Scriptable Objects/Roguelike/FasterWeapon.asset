@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: SWING AND SWING!
   description: Your Axe Spins Faster
+  icon: {fileID: 8523209124744441198, guid: 2a1f14ec4a1a9ae4ab44956e837c0e2d, type: 3}
   type: 0
   amount: 50

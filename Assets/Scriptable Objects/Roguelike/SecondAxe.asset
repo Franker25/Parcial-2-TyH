@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: AND YOU HAVE MY AXE!
   description: You Gain an Extra Axe
+  icon: {fileID: -4976933874930398042, guid: d303730357ac411488795cb6c9a377ae, type: 3}
   type: 2
   amount: 0

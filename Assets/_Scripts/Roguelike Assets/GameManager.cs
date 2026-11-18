@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     private WeaponRotation weapon;
     [SerializeField]
     private Player player;
+    [SerializeField]
+    private Image[] optionIcons;
 
     private int kills = 0;
     private int killsToClear = 0;
@@ -138,7 +141,9 @@ public class GameManager : MonoBehaviour
 
                 optionButtons[i].SetActive(true);
                 TextMeshProUGUI buttonText = optionButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-                buttonText.text = "<b><size=115%>" + currentOptions[i].upgradeName + "</size></b>\n\n" + currentOptions[i].description; ;
+                buttonText.text = "<b><size=115%>" + currentOptions[i].upgradeName + "</size></b>\n\n" + currentOptions[i].description;
+                optionIcons[i].sprite = currentOptions[i].icon;
+                optionIcons[i].gameObject.SetActive(currentOptions[i].icon != null); ;
             }
             else
             {

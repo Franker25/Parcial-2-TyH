@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ba75c9a2296b894083b92b4ff8ad1ee
+guid: c6f0d43e955a75549894e05823bda59e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2252053114423091631
-    second: Satyr-removebg-preview_0
+      213: -4887562133397094769
+    second: fb1280_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Satyr-removebg-preview_0
+      name: fb1280_0
       rect:
         serializedVersion: 2
-        x: 30
+        x: 0
         y: 0
-        width: 50
-        height: 89
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa1208c2066e04f10800000000000000
-      internalID: 2252053114423091631
+      spriteID: f8e37359224eb2cb0800000000000000
+      internalID: -4887562133397094769
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Satyr-removebg-preview_0: 2252053114423091631
+      fb1280_0: -4887562133397094769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: Now Matter The Armor. YOU CAN DASH!
   description: Press Space to Dash
+  icon: {fileID: -7897748613763966535, guid: 17edb67ab138284459d85e8379e52356, type: 3}
   type: 7
   amount: 0

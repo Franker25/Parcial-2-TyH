@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: SLOW RIDE!!
   description: Crabs Move Slower
+  icon: {fileID: 8761220712181498684, guid: 4768306afc99a58449cbd12f1bc3583e, type: 3}
   type: 6
   amount: 0.5

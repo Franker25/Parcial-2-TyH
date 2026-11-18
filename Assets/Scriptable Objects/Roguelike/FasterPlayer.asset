@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: GOTTA GO FAST!
   description: Faster Movement Speed
+  icon: {fileID: 3530809580046543755, guid: 2dc0ab4be36c42d45a5886327410955e, type: 3}
   type: 0
   amount: 0.5

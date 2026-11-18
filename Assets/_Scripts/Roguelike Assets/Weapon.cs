@@ -3,10 +3,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
-    private float rotationSpeed = 200; //Teniendo el private hace que otros scripts no lo manipulen, pero el Serialized permite que este en el Inspector
+    private float rotationSpeed = 200; 
     [SerializeField]
     private Vector3 rotationPoint = Vector3.zero;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         
@@ -15,13 +15,12 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rotationAmount = CalculateRotationAmount(Time.deltaTime); // Seria lo mismo que poner rotationSpeed * Time.deltaTime pero estamos probando Metodos
+        float rotationAmount = CalculateRotationAmount(Time.deltaTime); 
         transform.RotateAround(rotationPoint, Vector3.forward, rotationAmount);
-        return; // El Vector representa ciertos puntos del espacio
-                //Planteamos el Movimiento mediante el Transform, y con los Vectores permitimos el movimiento
+        return; 
     }
 
-    private float CalculateRotationAmount(float delta) // Probando nuevos Metodos, usamos los () para explicar el valor que quiero tomar del codigo para usar
+    private float CalculateRotationAmount(float delta) 
     {
         return rotationSpeed * delta;
     }

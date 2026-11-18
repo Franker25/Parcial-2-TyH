@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   upgradeName: AND GET THIS MAN A SHIELD!
   description: Blocks One Crab Hit Each Level
+  icon: {fileID: 8123211062168416071, guid: 649c47083758d544d95de9898235eedc, type: 3}
   type: 4
   amount: 0
