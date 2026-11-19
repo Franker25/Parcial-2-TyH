@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
             dashCooldownTimer -= Time.deltaTime;
         }
 
-        if (canDash && Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0f && input != Vector2.zero)
+        if (canDash && Input.GetKeyDown(KeyCode.LeftShift) && dashCooldownTimer <= 0f && input != Vector2.zero)
         {
             dashDirection = input;
             dashTimer = dashDuration;

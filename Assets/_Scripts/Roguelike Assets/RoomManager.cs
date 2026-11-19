@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour
 {
@@ -15,12 +16,26 @@ public class RoomManager : MonoBehaviour
 
     void Awake()
     {
-        int pick = Random.Range(0, roomCenters.Length);
-        while (pick == RunData.LastRoom && roomCenters.Length > 1)
+        List<int> candidates = new List<int>();
+        for (int i = 0; i < roomCenters.Length; i++)
         {
-            pick = Random.Range(0, roomCenters.Length);
+            if (!RunData.VisitedRooms.Contains(i))
+            {
+                candidates.Add(i);
+            }
         }
-        RunData.LastRoom = pick;
+
+        if (candidates.Count == 0)
+        {
+            RunData.VisitedRooms.Clear();
+            for (int i = 0; i < roomCenters.Length; i++)
+            {
+                candidates.Add(i);
+            }
+        }
+
+        int pick = candidates[Random.Range(0, candidates.Count)];
+        RunData.VisitedRooms.Add(pick);
 
         Vector3 center = roomCenters[pick].position;
         Vector3 start = playerStarts[pick].position;
